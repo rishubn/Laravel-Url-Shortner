@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+
+class DatabaseSeeder extends Seeder {
+
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		Model::unguard();
+
+		 $this->call('UrlSeeder');
+	}
+
+}
+
+class UrlSeeder extends Seeder {
+
+
+    public function run()
+    {
+        DB::table('urls')->delete();
+
+        \App\Url::create(array('userid' => 1,
+            'url' => 'test',
+            'hash' => 'asdasdad'
+        ));
+
+    }
+}
