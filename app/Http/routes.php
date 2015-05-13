@@ -10,7 +10,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function() {
+    return Redirect::to('auth/login');
+});
 
 Route::get('home', 'UrlController@index');
 Route::post('home','UrlController@store');
@@ -19,7 +21,6 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
 
 
 
